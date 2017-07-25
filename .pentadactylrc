@@ -1,20 +1,16 @@
-"1.0b7.2 "(created 2011/08/05 11:03:59)"
+set gui=none
+set hintchars=asdfqwer
 
-loadplugins '\.(js|penta)$'
-group user
 set defsearch=goog
 
-" set wildoptions=auto
-" map S :noscript toggleperm<CR>
-qmark s slashdot.org
-qmark b boingboing.net
-qmark r http://reddit.com/r/technology+science+lectures+linux+sysadmin+neuro+cogsci
-qmark m maps.google.com
-qmark t http://eztv.it/index.php?main=showlist
-qmark p http://dragonballclassics.com/category/all-anime/one-piece/
-qmark j http://www.joesjamblog.com/jams2.html
-qmark f ftp://ftp.redhat.com/pub/redhat/linux/enterprise/5Server/en/os/SRPMS/
-qmark t http://deimos.apple.com/WebObjects/Core.woa/Browsev2/itunes.stanford.edu
-qmark v http://www.archive.org/browse.php?collection=etree&field=%2Fmetadata%2Fcreator
-qmark 1 https://www9.v1host.com/CVSDude/Default.aspx?menu=MyHomeSummaryPage
-qmark k javascript:var%20l%20=%20window.location;function%20$klipme_install(){if(window.MooTools%20||%20window.Prototype){alert('Sorry,%20some%20JavaScript%20in%20the%20page%20is%20not%20compatible%20with%20this%20Bookmarklet.%20We%20will%20improve%20this%20later.%20Thanks.');return;}var%20d%20=%20document;try%20{if%20(!d.body)%20throw%20(0);var%20s%20=%20d.createElement('script');s.setAttribute('id',%20'klipme_loader');s.setAttribute('type',%20'text/javascript');s.setAttribute('charset',%20'utf-8');s.setAttribute('src',%20'http://www.klip.me/sendtokindle/bookmarklet?key=1351cbb257032e9&v=2.6.1.253&t='%20+%20(new%20Date().getTime()));d.body.appendChild(s);}%20catch%20(e)%20{alert('Please%20wait%20until%20the%20page%20has%20loaded.');d.getElementById('klipme_loader').destroy%20();}}if%20(l.host.indexOf('klip.me')>=0%20||%20(l.protocol!='http:'%20&&%20l.protocol!='https:'))%20l.href='http://www.klip.me/sendtokindle/options?key=1351cbb257032e9&v=2.6.1.253&url='%20+%20encodeURIComponent(l.href);else%20if%20(document.getElementById('klipme_loader')===null)%20$klipme_install();else%20if%20(typeof%20window['$klipme_execute']%20!==%20'undefined')%20window['$klipme_execute']%20();
+map K     :tabprev<CR>
+map J     :tabnext<CR>
+noremap j     5j
+noremap k     5k
+
+map h :back<CR>
+map l :forward<CR>
+map ; <C-6>
+set focuscontent
+
+source ~/.vimperator/local_qmarks
