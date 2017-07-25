@@ -1,6 +1,0 @@
-shell                 zsh
-
-hardstatus string "%H %{.bw}%-w%{.rw}%n %t%{-}%+w %=%"
-hardstatus alwayslastline
-vbellwait 0
-vbell off
