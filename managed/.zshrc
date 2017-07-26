@@ -9,6 +9,8 @@ setopt histignorealldups sharehistory
 # Use vi keybindings even if our EDITOR is set to vi
 bindkey -v
 
+EDITOR=vim
+
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -24,7 +26,6 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
