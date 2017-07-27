@@ -9,13 +9,12 @@ setopt histignorealldups sharehistory
 # Use vi keybindings even if our EDITOR is set to vi
 bindkey -v
 
-EDITOR=vim
+export EDITOR=vim
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
-EDITOR=vim
 
 # Use modern completion system
 autoload -Uz compinit
