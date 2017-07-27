@@ -1,0 +1,15 @@
+[submodule "APW"]
+  path = managed_config/awesome/APW
+  url = https://github.com/mokasin/apw
+[submodule "awesome-copycats"]
+  path = managed_config/awesome/awesome-copycats
+  url=https://github.com/copycat-killer/awesome-copycats
+[submodule "awesome.volume-control"]
+  path = managed_config/awesome/awesome.volume-control
+  url=https://github.com/coldfix/awesome.volume-control
+[submodule "awesome.battery-widget"]
+  path = managed_config/awesome/awesome.battery-widget
+  url=https://github.com/coldfix/awesome.battery-widget
+[submodule "awesome-volume"]
+  path = managed_config/awesome/lib/awesome-volume
+  url=https://github.com/miraleung/awesome-volume.git
