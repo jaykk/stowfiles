@@ -38,5 +38,5 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
-PATH=$PATH:~/bin
-bindkey -rpM viins '\e'
+PATH=~/bin:$PATH
+#bindkey -rpM viins '\e' #vi mode delay
