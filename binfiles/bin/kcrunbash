@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+set -o pipefail
+imagename=${1}
+dockerfile=${2}
+run_cmd="bash"
+kubectl delete deployment ${imagename} || echo deployment not found
+docker build -f ${dockerfile} -t ${imagename}:v1 .
+sleep 5
+kubectl run -it ${imagename} --image=${imagename}:v1 --image-pull-policy=Never --command -- ${run_cmd}

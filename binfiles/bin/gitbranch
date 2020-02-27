@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+gb=$(git symbolic-ref HEAD)
+echo ${gb#refs/heads/}

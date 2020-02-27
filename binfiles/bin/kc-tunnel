@@ -1,0 +1,7 @@
+#!/bin/zsh -eux
+host="${1}"
+project="${2}"
+role="${3}"
+container="$(kc ${host} --context="${host}"-readonly --namespace="${host}" get pods -l '"'project in \("${project}"\)'"' -l '"'role in \("${role}"\)'"' -o go-template='"'{{range .items}}{{.status.podIP}}{{'\"\n\"'}}{{end}}'"' | head -n 1)"
+
+ssh -L 8500:"${container}":8500 "${host}"

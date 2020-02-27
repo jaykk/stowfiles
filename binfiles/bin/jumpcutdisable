@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+osascript -e 'quit app "Flycut"'
+echo "Flycut disabled for 30 seconds"
+sleep 30
+open -a Flycut &
