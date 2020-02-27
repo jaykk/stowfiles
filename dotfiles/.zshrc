@@ -2,8 +2,10 @@ aws_prof='$AWS_PROFILE'
 git_info='$(git_prompt_info)'
 alias bat="bat --wrap never"
 alias k=kubectl
-#alias vim=nvim
+alias vim=nvim
 bindkey '^q' push-line-or-edit
+autoload -U compinit
+compinit
 
 set -o vi
 export KEYTIMEOUT=1
