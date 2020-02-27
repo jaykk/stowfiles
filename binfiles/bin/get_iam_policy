@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+set -xe
+aws iam get-policy-version --policy-arn "$(aws iam list-attached-role-policies --role-name ${1} | jq -r '.AttachedPolicies[0].PolicyArn')" --version-id v1 | bat

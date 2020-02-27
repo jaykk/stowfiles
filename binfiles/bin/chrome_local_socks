@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+ssh -f -D 7272 ${1} "sleep 3600" & \
+  mkdir -p "/tmp/chrome-$(date +%Y%M%D)/First Run" && \
+  /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+    --proxy-server="socks5://127.0.0.1:7272" \
+    --host-resolver-rules="MAP * ~NOTFOUND except 127.0.0.1" \
+    --user-data-dir=/tmp/chrome-$(date +%Y%M%D)

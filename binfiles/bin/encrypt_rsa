@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh -eu -x
+ssh-keygen -f $1 -e -m PKCS8 > temp.pem
+echo "enter password and press enter:"
+read temp_pass; echo $temp_pass > temp_pass; unset temp_pass
+openssl rsautl -ssl -encrypt -pubin -inkey temp.pem -ssl -in temp_pass | base64 | sed 's/\(.*\)/run this to decrypt your initial password: \`echo \"\1\" | base64 -D | openssl rsautl -decrypt -inkey ~\/.ssh\/id_rsa\` or wherever your private id_rsa is located. Please login with your ssh key to any server and run "passwd" to reset your temp password./' | pbcopy
+echo "Copied decrypt message to clipboard"
+rm temp_pass temp.pem

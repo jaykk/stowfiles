@@ -1,0 +1,28 @@
+#!/usr/bin/env bash -eu
+
+function usage(){
+  echo "Usage: source $0 profile-name"
+  echo "This script will look for aws profiles in ~/.aws/config"
+}
+
+
+if [[ $# -ne 1 ]] || [[ "${1}"  == "help" ]]; then
+  usage
+  exit 1
+fi
+
+aws_config_file="${HOME}/.aws/config"
+session_name=${1}-okta
+export AWS_PROFILE=${session_name}
+logged_in=0
+aws sts get-caller-identity 2>/dev/null >/dev/null || logged_in=1
+if [ $logged_in -eq 1 ]; then
+  opts="login --session-duration=43200 --skip-prompt -p ${session_name} "
+  role=$(awk "/\[${1}\]/{getline; print \$3}" $aws_config_file)
+  if [ -z $role ]; then
+    echo error no role found
+    usage
+  else
+    echo "Duo Push" | saml2aws $(echo $opts) $(echo --role $role)
+  fi
+fi

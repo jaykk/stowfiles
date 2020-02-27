@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+if [[ $(gitbranch) != "master" ]]; then
+  git push --force-with-lease origin $(gitbranch)
+else
+  echo "On master branch. No push!"
+fi

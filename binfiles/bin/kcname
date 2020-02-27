@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh -eu
+
+if [[ "$#" -lt 2 ]]; then
+  echo "Usage: $0 pod-selector-filter"
+else
+  ssh $1 "bash --login -c '''kubectl get pod -l ${@:2} --no-headers=true -o go-template=\"{{range.items}}{{.metadata.name}}{{end}}\"'''"
+fi

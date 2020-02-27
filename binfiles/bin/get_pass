@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+lpass ls > /dev/null
+if [[ $? -ne 0 ]]; then
+  lpass login ${LPASS_USERNAME}
+fi
+osascript -e 'quit app "Flycut"'
+lpass show -c --password $(lpass ls  | fzf | awk '{print $(NF)}' | sed 's/\]//g')
+echo "Copied pass. You have 30 seconds"
+sleep 30
+open -a Flycut &
