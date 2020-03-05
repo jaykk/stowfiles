@@ -1,3 +1,4 @@
 #!/usr/bin/env zsh
 set -xe
-aws iam get-policy-version --policy-arn "$(aws iam list-attached-role-policies --role-name ${1} | jq -r '.AttachedPolicies[0].PolicyArn')" --version-id v1 | bat
+last_version=$(aws iam list-policy-versions  --policy-arn "$(aws iam list-attached-role-policies --role-name pipeline-beagle-staging-us-east-1 | jq -r '.AttachedPolicies[0].PolicyArn')" | jq -r '.Versions[length -1].VersionId')
+aws iam get-policy-version --policy-arn "$(aws iam list-attached-role-policies --role-name ${1} | jq -r '.AttachedPolicies[0].PolicyArn')" --version-id ${last_version} | bat

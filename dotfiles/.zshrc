@@ -18,3 +18,5 @@ setopt share_history
 export PATH="$HOME/bin:$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 eval "$(pyenv init -)"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
