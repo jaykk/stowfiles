@@ -8,12 +8,19 @@ function usage(){
 
 if [[ $# -ne 1 ]] || [[ "${1}"  == "help" ]]; then
   usage
-  exit 1
+  return 1
+fi
+
+VPN_ON=$(ifconfig gpd0|grep -c '<UP,')
+if [[ $VPN_ON == 0 ]]; then
+  echo "VPN not deteceted, exiting"
+  return 1
 fi
 
 aws_config_file="${HOME}/.aws/config.okta"
 session_name=${1}-okta
 export AWS_PROFILE=${session_name}
+export AWS_DEFAULT_REGION=us-west-2
 logged_in=0
 aws sts get-caller-identity 2>/dev/null >/dev/null || logged_in=1
 if [ $logged_in -eq 1 ]; then

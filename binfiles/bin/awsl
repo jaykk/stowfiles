@@ -1,3 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -x
 set -u
-source awsokta ${1} && awslogin
+
+source ${HOME}/bin/awsokta ${1} && ${HOME}/bin/awslogin

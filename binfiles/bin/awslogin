@@ -2,7 +2,7 @@
 login_url=$(awslogin_py)
 if [ $? -eq 0 ]; then
   ENCODED_URL="${login_url//&/%26}"
-  /Applications/Firefox.app/Contents/MacOS/firefox "ext+container:name=${AWS_PROFILE}&url=${ENCODED_URL}"
+  /Applications/Firefox.app/Contents/MacOS/firefox -P default-release "ext+container:name=${AWS_PROFILE}&url=${ENCODED_URL}"
 else
   echo "Error generating login url"
 fi

@@ -1,0 +1,3 @@
+#/usr/env bash -exu
+encoded_url="${1//&/%26}"
+/Applications/Firefox.app/Contents/MacOS/firefox -P default-release "ext+container:name=Work&url=$encoded_url"

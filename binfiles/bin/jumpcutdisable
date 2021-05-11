@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 osascript -e 'quit app "Flycut"'
 echo "Flycut disabled for 30 seconds"
 sleep 30
